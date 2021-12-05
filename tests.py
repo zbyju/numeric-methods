@@ -2,6 +2,7 @@ import unittest
 
 import numpy as np
 
+from gauss_seidel import Gauss_Seidel
 from jacobi import Jacobi
 from utils import spectral_radius
 
@@ -32,6 +33,15 @@ class TestUtils(unittest.TestCase):
     self.assertTrue(np.allclose(np.array([3, 4]), je[0]))
     self.assertTrue(np.allclose(np.array([1, 1]), ja1[0]))
     self.assertTrue(np.allclose(np.array([97/101, 1]), ja2[0]))
+
+  def test_gauss_seidel(self):
+    E = np.array([[1, 0], [0, 1]])
+    b = np.array([3, 4])
+    x0 = np.array([10, 10])
+
+    ge = Gauss_Seidel(E, b, x0, 10e-9, 10e7).solve()
+
+    self.assertTrue(np.allclose(np.array([3, 4]), ge[0]))
 
 if __name__ == '__main__':
     unittest.main()
