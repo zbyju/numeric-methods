@@ -6,6 +6,9 @@ from jacobi import Jacobi
 
 
 def generate_A(gamma):
+  """
+  Generate the matrix as described in the assignment based on inputed gamma
+  """
   return np.array([
     [gamma, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [-1, gamma, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -30,10 +33,16 @@ def generate_A(gamma):
   ])
 
 def generate_b(gamma):
+  """
+  Generate the right side as described in the assignment based on inputed gamma
+  """
   return np.array([gamma - 1, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2,
                    gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 2, gamma - 1])
 
 def solve_jacobi(gamma):
+  """
+  Get solution (tuple (x, # of iterations)) using jacobi method
+  """
   A = generate_A(gamma)
   b = generate_b(gamma)
   x0 = np.zeros(20)
@@ -42,6 +51,9 @@ def solve_jacobi(gamma):
   return Jacobi(A, b, x0, eps, K).solve()
 
 def solve_gauss_seidel(gamma):
+  """
+  Get solution (tuple (x, # of iterations)) using gauss-seidel method
+  """
   A = generate_A(gamma)
   b = generate_b(gamma)
   x0 = np.zeros(20)
@@ -50,6 +62,9 @@ def solve_gauss_seidel(gamma):
   return Gauss_Seidel(A, b, x0, eps, K).solve()
 
 if __name__ == '__main__':
+  """
+  Print all the solutions for the assignment
+  """
   gammas = [5, 2, 1/2]
 
   for gamma in gammas:
