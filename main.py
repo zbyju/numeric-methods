@@ -70,14 +70,14 @@ if __name__ == '__main__':
   for gamma in gammas:
     gammaStr = str(gamma)
     try:
-      print(solve_jacobi(gamma)[1])
+      print("Jacobi " + gammaStr + " - " + str(solve_jacobi(gamma)[1]))
     except DivergenceError:
       print("Jacobi " + gammaStr + " - Divergence error")
     except TooManyIterationsError:
       print("Jacobi " + gammaStr + " - Too many iterations error")
 
     try:
-      print(solve_gauss_seidel(gamma)[1])
+      print("GaussSeidel " + gammaStr + " - " + str(solve_gauss_seidel(gamma)[1]))
     except DivergenceError:
       print("GaussSeidel " + gammaStr + " - Divergence error")
     except TooManyIterationsError:
