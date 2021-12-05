@@ -55,7 +55,7 @@ class Jacobi:
     """
     Calculates the next x_k using the Jacobi method
 
-    x_k = Dinv (b - (L + U) * x_(k-1) )
+    x_k = Dinv * ( b - (LU * x_(k-1)) )
     """
     return np.dot(self.Dinv, (np.subtract(self.b, np.dot(self.LU, self.x))))
 

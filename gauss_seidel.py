@@ -76,4 +76,4 @@ class Gauss_Seidel:
       - Matrix A is symmetric
       - Matrix A is positive definite
     """
-    return is_pos_def(self.A) and is_symmetric(self.A)
+    return is_symmetric(self.A) and is_pos_def(self.A)
